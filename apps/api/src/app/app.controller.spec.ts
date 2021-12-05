@@ -14,11 +14,9 @@ describe('AppController', () => {
   });
 
   describe('getData', () => {
-    it('should return "Welcome to animal-api!"', () => {
+    it('should return "Welcome to api!"', () => {
       const appController = app.get<AppController>(AppController);
-      expect(appController.getData()).toEqual({
-        message: 'Welcome to animal-api!',
-      });
+      expect(appController.getData()).toEqual({ message: 'Welcome to api!' });
     });
   });
 });
