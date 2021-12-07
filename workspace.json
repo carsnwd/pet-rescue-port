@@ -202,7 +202,7 @@
       },
       "tags": []
     },
-    "e2e/app-e2e": {
+    "app-e2e": {
       "root": "apps/e2e/app-e2e",
       "sourceRoot": "apps/e2e/app-e2e/src",
       "projectType": "application",
