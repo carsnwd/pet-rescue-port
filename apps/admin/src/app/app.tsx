@@ -1,10 +1,11 @@
 import styles from './app.module.scss';
-import {Button} from 'primereact/button';
+import 'bulma/css/bulma.min.css';
+import { Button } from 'react-bulma-components';
 
 export function App() {
   return (
-    <div>
-      <Button>Howdy</Button>
+    <div className={styles.app}>
+      <Button>Bulma!</Button>
     </div>
   );
 }
