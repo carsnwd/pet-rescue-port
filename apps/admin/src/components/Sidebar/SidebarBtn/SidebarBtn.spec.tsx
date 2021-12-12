@@ -4,6 +4,16 @@ import SidebarBtn from "./SidebarBtn";
 import { MemoryRouter } from "react-router-dom";
 
 describe("SidebarBtn", () => {
+  test("snapshot", () => {
+    const label = "test-value";
+    const link = "test-link";
+    const tree = render(
+      <MemoryRouter>
+        <SidebarBtn label={label} linkTo={link}></SidebarBtn>
+      </MemoryRouter>
+    );
+    expect(tree).toMatchSnapshot();
+  });
   test("should utilize the proper label and link", () => {
     const label = "test-value";
     const link = "test-link";

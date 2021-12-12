@@ -1,0 +1,1 @@
+export interface SidebarBtnProps { label: string; linkTo: string }
