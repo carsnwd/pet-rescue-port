@@ -1,11 +1,11 @@
-import { useState } from 'react'
+import Sidebar from './components/Sidebar'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      Hello World
+    <div className="flex">
+      <Sidebar/>
+      <div className="flex-col bg-slate-100 w-screen">Content</div>
     </div>
   )
 }
