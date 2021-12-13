@@ -14,6 +14,27 @@ jest.mock("./SidebarLogo/SidebarLogo", () => () => {
   mockSidebarLogo();
   return <div />;
 });
+const mockFaDog = jest.fn();
+const mockGiDogHouse = jest.fn();
+const mockFaHome = jest.fn();
+const mockFaFileContract = jest.fn();
+jest.mock("react-icons/fa", () => () => {
+  return {
+    ...jest.requireActual("react-icons/fa"),
+    FaDog: () => {
+      mockFaDog();
+      return <div />;
+    },
+    FaHome: () => {
+      mockFaHome();
+      return <div />;
+    },
+    FaFileContract: () => {
+      mockFaFileContract();
+      return <div />;
+    },
+  };
+});
 
 describe("SidebarLogo - ", () => {
   test("snapshot", () => {
@@ -22,19 +43,31 @@ describe("SidebarLogo - ", () => {
   });
   test("renders the sidebar", () => {
     const tree = render(<Sidebar />);
-    expect(mockSidebarBtn).toHaveBeenCalledTimes(3);
+    expect(mockSidebarBtn).toHaveBeenCalledTimes(4);
     expect(mockSidebarBtn).toHaveBeenNthCalledWith(1, {
       label: "Home",
       linkTo: "/",
+      icon: expect.anything(),
     });
     expect(mockSidebarBtn).toHaveBeenNthCalledWith(2, {
-      label: "Browse Animals",
+      label: "Animals",
       linkTo: "/animals",
+      icon: expect.anything(),
     });
     expect(mockSidebarBtn).toHaveBeenNthCalledWith(3, {
-      label: "Settings",
-      linkTo: "/settings",
+      label: "Fosters",
+      linkTo: "/fosters",
+      icon: expect.anything(),
+    });
+    expect(mockSidebarBtn).toHaveBeenNthCalledWith(4, {
+      label: "Adoption Inquries",
+      linkTo: "/adoptions",
+      icon: expect.anything(),
     });
     expect(mockSidebarLogo).toHaveBeenCalledTimes(1);
+    // expect(mockFaDog).toHaveBeenCalledTimes(1);
+    // expect(mockFaFileContract).toHaveBeenCalledTimes(1);
+    // expect(mockGiDogHouse).toHaveBeenCalledTimes(1);
+    // expect(mockFaHome).toHaveBeenCalledTimes(1);
   });
 });

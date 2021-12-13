@@ -6,8 +6,9 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="bg-primary w-80 flex-col h-screen"
+        class="bg-primary w-96 flex-col h-screen"
       >
+        <div />
         <div />
         <div />
         <div />
@@ -17,8 +18,9 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="bg-primary w-80 flex-col h-screen"
+      class="bg-primary w-96 flex-col h-screen"
     >
+      <div />
       <div />
       <div />
       <div />

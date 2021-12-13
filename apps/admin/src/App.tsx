@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex-col bg-slate-100 w-screen">
+      <div className="flex-col bg-white w-screen">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="settings" element={<Settings />} />

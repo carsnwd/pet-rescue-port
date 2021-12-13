@@ -6,13 +6,16 @@ Object {
   "baseElement": <body>
     <div>
       <a
-        class="flex flex-grow ml-4 mt-4"
+        class="flex flex-grow mt-4"
         data-testid="sidebar-link"
         href="/test-link"
       >
         <button
-          class="bg-primary hover:bg-white text-white hover:text-primary font-bold py-2 px-4 rounded-full whitespace-nowrap"
+          class="bg-primary hover:bg-white text-white hover:text-primary font-bold py-2 px-4 whitespace-nowrap w-full text-left"
         >
+          <div
+            class="inline-block mr-2"
+          />
           test-value
         </button>
       </a>
@@ -20,13 +23,16 @@ Object {
   </body>,
   "container": <div>
     <a
-      class="flex flex-grow ml-4 mt-4"
+      class="flex flex-grow mt-4"
       data-testid="sidebar-link"
       href="/test-link"
     >
       <button
-        class="bg-primary hover:bg-white text-white hover:text-primary font-bold py-2 px-4 rounded-full whitespace-nowrap"
+        class="bg-primary hover:bg-white text-white hover:text-primary font-bold py-2 px-4 whitespace-nowrap w-full text-left"
       >
+        <div
+          class="inline-block mr-2"
+        />
         test-value
       </button>
     </a>
