@@ -22,7 +22,7 @@ describe("SidebarLogo - ", () => {
     expect(tree).toMatchSnapshot();
   });
   test("renders the sidebar", () => {
-    const tree = render(<Sidebar />);
+    render(<Sidebar />);
     expect(mockSidebarBtn).toHaveBeenCalledTimes(4);
     expect(mockSidebarBtn).toHaveBeenNthCalledWith(1, {
       label: "Home",
