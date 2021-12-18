@@ -14,27 +14,7 @@ jest.mock("./SidebarLogo/SidebarLogo", () => () => {
   mockSidebarLogo();
   return <div />;
 });
-const mockFaDog = jest.fn();
-const mockGiDogHouse = jest.fn();
-const mockFaHome = jest.fn();
-const mockFaFileContract = jest.fn();
-jest.mock("react-icons/fa", () => () => {
-  return {
-    ...jest.requireActual("react-icons/fa"),
-    FaDog: () => {
-      mockFaDog();
-      return <div />;
-    },
-    FaHome: () => {
-      mockFaHome();
-      return <div />;
-    },
-    FaFileContract: () => {
-      mockFaFileContract();
-      return <div />;
-    },
-  };
-});
+jest.mock("react-icons");
 
 describe("SidebarLogo - ", () => {
   test("snapshot", () => {
@@ -65,9 +45,5 @@ describe("SidebarLogo - ", () => {
       icon: expect.anything(),
     });
     expect(mockSidebarLogo).toHaveBeenCalledTimes(1);
-    // expect(mockFaDog).toHaveBeenCalledTimes(1);
-    // expect(mockFaFileContract).toHaveBeenCalledTimes(1);
-    // expect(mockGiDogHouse).toHaveBeenCalledTimes(1);
-    // expect(mockFaHome).toHaveBeenCalledTimes(1);
   });
 });
