@@ -1,7 +1,7 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
 import.meta.env.VITE_FIREBASE;
 
-class FirebaseService {
+export class FirebaseService {
   private static instance: FirebaseService;
 
   private firebase: FirebaseApp;
