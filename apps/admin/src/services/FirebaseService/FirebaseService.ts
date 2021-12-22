@@ -5,7 +5,6 @@ import {
   getDocs,
   Firestore,
 } from "firebase/firestore/lite";
-import.meta.env.VITE_FIREBASE;
 
 export class FirebaseService {
   private static instance: FirebaseService;
