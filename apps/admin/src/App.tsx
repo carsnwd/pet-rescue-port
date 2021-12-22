@@ -2,8 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import Sidebar from "./components/Sidebar/Sidebar";
 import Home from "./layouts/Home";
 import Settings from "./layouts/Settings";
+import { getAnimals } from "./services/AnimalAPIService/AnimalAPIService";
 
 function App() {
+  getAnimals().then(animals => {console.log(animals)});
   return (
     <div className="flex">
       <Sidebar />

@@ -1,24 +1,32 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
+import {
+  getFirestore,
+  collection,
+  getDocs,
+  Firestore,
+} from "firebase/firestore/lite";
 import.meta.env.VITE_FIREBASE;
 
 export class FirebaseService {
   private static instance: FirebaseService;
 
   private firebase: FirebaseApp;
+  private db: Firestore;
 
   private constructor() {
     this.firebase = this.initializeFirebaseApp();
+    this.db = getFirestore(this.firebase);
   }
 
   private initializeFirebaseApp(): FirebaseApp {
     const firebaseConfig = {
-      apiKey: import.meta.env.VITE_FIREBASE.apiKey,
-      authDomain: import.meta.env.VITE_FIREBASE.authDomain,
-      projectId: import.meta.env.VITE_FIREBASE.projectId,
-      storageBucket: import.meta.env.VITE_FIREBASE.storageBucket,
-      messagingSenderId: import.meta.env.VITE_FIREBASE.messagingSenderId,
-      appId: import.meta.env.VITE_FIREBASE.appId,
-      measurementId: import.meta.env.VITE_FIREBASE.measurementId,
+      apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+      authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+      projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+      storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+      appId: import.meta.env.VITE_FIREBASE_APP_ID,
+      measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
     };
     return initializeApp(firebaseConfig);
   }
@@ -28,5 +36,9 @@ export class FirebaseService {
       FirebaseService.instance = new FirebaseService();
     }
     return FirebaseService.instance;
+  }
+
+  public getFirestore(): Firestore {
+    return this.db;
   }
 }
