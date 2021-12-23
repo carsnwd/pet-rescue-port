@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SidebarBtnProps } from "./interface";
+import { SidebarBtnProps } from "../../../interface";
 
 export default function SidebarBtn(props: SidebarBtnProps) {
   const { label, linkTo, icon } = props;

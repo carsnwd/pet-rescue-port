@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import { SidebarBtnProps } from "./SidebarBtn/interface";
+import { SidebarBtnProps } from "../../interface";
 import Sidebar from "./Sidebar";
 
 const mockSidebarBtn = jest.fn();

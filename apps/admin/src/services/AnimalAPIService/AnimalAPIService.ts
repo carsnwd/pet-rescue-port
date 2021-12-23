@@ -4,17 +4,28 @@ import {
   query,
   getDocs,
   DocumentData,
+  CollectionReference,
 } from "firebase/firestore/lite";
+import { AnimalData } from "../../interface";
 
 const firebase = FirebaseService.getFirebaseInstance();
-const db = firebase.getFirestore();
 
-export async function getAnimals(): Promise<DocumentData> {
-  const animalsRef = collection(db, "animals");
-  const q = query(animalsRef);
+function _getAnimalCollection(): CollectionReference<DocumentData> {
+  const db = firebase.getFirestore();
+  return collection(db, "animals");
+}
+
+export async function getAnimals(): Promise<AnimalData[]> {
+  const animalsCollection = _getAnimalCollection();
+  const q = query(animalsCollection);
   const res = await getDocs(q);
-  return res.docs.map((doc) => {
-    return doc.data();
+  return res.docs.map((doc: any) => {
+    return {
+      species: doc.species as string,
+      age: doc.age as string,
+      gender: doc.gender as string,
+      name: doc.name as string,
+    };
   });
 }
 

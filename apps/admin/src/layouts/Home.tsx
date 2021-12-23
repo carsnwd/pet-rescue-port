@@ -1,9 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { getAnimals } from '../services/AnimalAPIService/AnimalAPIService'
-import { DocumentData } from 'firebase/firestore/lite';
+import { AnimalData } from '../interface';
+
+function _formatAnimals(animals: AnimalData[]): string[] {
+    return animals?.map((animal: {name: string, species: string, gender: string, age: string}) => {
+                return animal.name + " " + animal.species + " " + animal.gender + " " + animal.age
+            })
+}
 
 export default function Home() {
-    const [animals, setAnimals] = useState<DocumentData>();
+    const [animals, setAnimals] = useState<AnimalData[]>();
     useEffect(() => {
         getAnimals().then(res => {
             setAnimals(res);
@@ -11,9 +17,7 @@ export default function Home() {
     }, [])
     return (
         <div>
-            {animals?.map((animal: {name: string, species: string, gender: string, age: string}) => {
-                return animal.name + " " + animal.species + " " + animal.gender + " " + animal.age
-            })}
+            {_formatAnimals(animals as AnimalData[])}
         </div>
     )
 }
