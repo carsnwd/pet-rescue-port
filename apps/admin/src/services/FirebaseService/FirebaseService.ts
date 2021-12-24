@@ -1,12 +1,7 @@
 import { FirebaseApp, initializeApp } from "firebase/app";
-import {
-  getFirestore,
-  collection,
-  getDocs,
-  Firestore,
-} from "firebase/firestore/lite";
+import { getFirestore, Firestore } from "firebase/firestore/lite";
 
-export class FirebaseService {
+export default class FirebaseService {
   private static instance: FirebaseService;
 
   private firebase: FirebaseApp;
