@@ -1,2 +1,15 @@
-apps/admin/firestore-debug.log
-apps/admin/.env
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+
+### Firebase ###
+.idea
+**/node_modules/*
+**/.firebaserc
+
+### Firebase Patch ###
+.runtimeconfig.json
+.firebase/
+./firebase-debug.log
